@@ -1,4 +1,5 @@
 # akka-training-cluster-events
+## This project was developed as part of the advanced akka training course by LightBend. 
 
 ### command aliases (ge, pr, sr, ge2, pr2, sr2 and sj)
 ```scala
