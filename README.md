@@ -17,11 +17,12 @@ Member nodes may perform different functions, the role is assigned using the akk
 
 An actor can subscribe to cluster change notifications.
 
-Some interesting events are: 
-Markup: 1. MemberUp: member status changed to Up.
-        2. UnreachableMember: member considered unreachable by failure detector.
-        3. MemberRemoved: member removed from the cluster.
-        4. CurrentMemberState: current snapshot state of the cluster unless InitialStateAsEvents specified. 
+Some interesting events are
+
+1. MemberUp: member status changed to Up.
+2. UnreachableMember: member considered unreachable by failure detector.
+3. MemberRemoved: member removed from the cluster.
+4. CurrentMemberState: current snapshot state of the cluster unless InitialStateAsEvents specified. 
 
 
 ### command aliases (ge, pr, sr, ge2, pr2, sr2 and sj)
