@@ -7,6 +7,12 @@ Akka Cluster provides a fault-tolerant decentralized peer-to-peer based cluster 
 
 A cluster is made up from a set of actor systems forming member nodes. Member nodes can join or leave a cluster any time. Joining a cluster automatically is facilitated by seed nodes. 
 
+```config
+actor {
+    provider = akka.cluster.ClusterActorRefProvider
+      }
+```
+
 Seed nodes are initial contact points for joining nodes and are used by actor systems for auto-joining the cluster. 
 
 When a node becomes unavailable, it can be auto-downed using the auto-down-unreachable-after configuration. Note that this can be very dangerous because it can lead to forming separate clusters (also known as the split-brain problem).
