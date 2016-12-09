@@ -32,6 +32,17 @@ Some interesting events are
 3. MemberRemoved: member removed from the cluster.
 4. CurrentMemberState: current snapshot state of the cluster unless InitialStateAsEvents specified. 
 
+## Exercise
+
+In this exercise we dynamically bind to remote PlayerRegistry instances by implementing Akka Cluster Events. The focus is on changing the file GameEngine.scala 
+
+1. Add a Waiting state to Transition form Waiting to Pausing when a member node with player-registry role becomes available.
+2. In the Pausing state handle MemberUp, MemberRemoved, and StateTimeout Events. 
+3. In The Running state handle MemberUp, MemberRemoved, and Terminated.
+4. preStart to handle cluster subscription 
+5. postStop to unsubscribe from the cluster
+6. Implement isPlayerRegistry to check if the Cluster Member has the role "player-registry" 
+7. Implement selectPlayerRegistry to select a Cluster Member has the role "player-registry"
 
 ### command aliases (ge, pr, sr, ge2, pr2, sr2 and sj)
 ```scala
