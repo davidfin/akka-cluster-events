@@ -32,6 +32,8 @@ Some interesting events are
 3. MemberRemoved: member removed from the cluster.
 4. CurrentMemberState: current snapshot state of the cluster unless InitialStateAsEvents specified. 
 
+![Alt text](https://github.com/davidfin/akka-cluster-events/blob/master/eventDiagram.png)
+
 ## Exercise
 
 In this exercise we dynamically bind to remote PlayerRegistry instances by implementing Akka Cluster Events. The focus is on changing the file GameEngine.scala 
