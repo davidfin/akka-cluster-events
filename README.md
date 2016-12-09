@@ -5,19 +5,21 @@ This project was developed as part of the advanced akka training course by Light
 ## Akka Cluster
 Akka Cluster provides a fault-tolerant decentralized peer-to-peer based cluster membership service with no single point of failure or single point of bottleneck. Gossip protocols are used along with an automatic failure detector.
 
-A cluster is made up from a set of actor systems forming member nodes. Member nodes can join or leave a cluster any time. Joining a cluster automatically is facilitated by seed nodes. 
+A cluster is made up from a set of actor systems forming member nodes. Member nodes can join or leave a cluster any time. Joining a cluster automatically is facilitated by seed nodes. Seed nodes are initial contact points for joining nodes and are used by actor systems for auto-joining the cluster. When a node becomes unavailable, it can be auto-downed using the auto-down-unreachable-after configuration. Note that this can be very dangerous because it can lead to forming separate clusters (also known as the split-brain problem).Member nodes may perform different functions, the role is assigned using the akka.cluster.roles configuration.
 
 ```config
 actor {
-    provider = akka.cluster.ClusterActorRefProvider
-      }
+    provider = akka.cluster.ClusterActorRefProvider 
+    cluster {
+    metrics.enabled=off
+    auto-down-unreachable-after = 5 seconds // shut down and considered left the cluster.
+    seed-nodes                  = [
+      "akka.tcp://akkollect-system@localhost:2551",
+      "akka.tcp://akkollect-system@localhost:2552"
+    ]
+  }
+}
 ```
-
-Seed nodes are initial contact points for joining nodes and are used by actor systems for auto-joining the cluster. 
-
-When a node becomes unavailable, it can be auto-downed using the auto-down-unreachable-after configuration. Note that this can be very dangerous because it can lead to forming separate clusters (also known as the split-brain problem).
-
-Member nodes may perform different functions, the role is assigned using the akka.cluster.roles configuration.
 
 ## Akka Cluster Events
 
